@@ -1,0 +1,19 @@
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Release\Nutrition_Facts.Add.resources
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Release\Nutrition_Facts.Main.resources
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Release\Nutrition_Facts.Properties.Resources.resources
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Release\Nutrition Facts.csproj.GenerateResource.Cache
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Release\Nutrition Facts.TrustInfo.xml
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Release\Nutrition Facts.exe
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Release\Nutrition Facts.pdb
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Release\Nutrition Facts.exe.config
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Release\Nutrition Facts.csprojResolveAssemblyReference.cache
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Release\Database.mdf
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Release\Database_log.ldf
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Release\Nutrition Facts.exe.manifest
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Release\Nutrition Facts.application
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Release\Nutrition Facts.exe
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Release\Nutrition Facts.pdb
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Release\Nutrition Facts.exe.manifest
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Release\Nutrition Facts.application
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Release\WhatsAppApi.dll
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Release\Nutrition_Facts.Messaging.resources

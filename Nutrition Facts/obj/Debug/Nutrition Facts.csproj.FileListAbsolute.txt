@@ -1,0 +1,38 @@
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Debug\Nutrition Facts.exe.config
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Debug\Database.mdf
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Debug\Database_log.ldf
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Debug\Nutrition Facts.exe
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Debug\Nutrition Facts.pdb
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.csprojResolveAssemblyReference.cache
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_Facts.Main.resources
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_Facts.Properties.Resources.resources
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.csproj.GenerateResource.Cache
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.exe
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.pdb
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_Facts.Add.resources
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.TrustInfo.xml
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Debug\Nutrition Facts.exe.manifest
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Debug\Nutrition Facts.application
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.exe.manifest
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.application
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Debug\WhatsAppApi.dll
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Debug\Nutrition Facts.exe.config
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.exe
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.pdb
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Debug\Database.mdf
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Debug\Database_log.ldf
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Debug\Nutrition Facts.exe.manifest
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Debug\Nutrition Facts.application
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Debug\Nutrition Facts.exe
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Debug\Nutrition Facts.pdb
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\bin\Debug\WhatsAppApi.dll
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.csprojResolveAssemblyReference.cache
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_Facts.Add.resources
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_Facts.Main.resources
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_Facts.Properties.Resources.resources
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_Facts.Messaging.resources
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.csproj.GenerateResource.Cache
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.TrustInfo.xml
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.exe.manifest
+G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.application
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_Facts.BMRForm.resources
