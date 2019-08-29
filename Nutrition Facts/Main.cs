@@ -16,7 +16,7 @@ namespace Nutrition_Facts
     public partial class Main : Form
     {
 
-        private DataTable dt;
+        private DataTable dataTable;
         private UpdateCheckInfo info;
         private double doubleTotalFatPercentage;
         private double doubleTotalCarbPercentage;
@@ -27,18 +27,15 @@ namespace Nutrition_Facts
         public Main()
         {
             InitializeComponent();
-            fill_Listbox();
-            //tooltip
-            ToolTip tooltip = new ToolTip();
-            tooltip.SetToolTip(calorieChart, "Calorie breakdown to illustrate nutritions taken");
-            tooltip.SetToolTip(rdiChart, "Amount of calories in relation to set RDI");
-            tooltip.SetToolTip(inputRDIMealCalculatorLabel, "* Average RDI is 2000 Calories");
-            tooltip.SetToolTip(inputRDILabel, "* Average RDI is 2000 Calories");
-            tooltip.SetToolTip(servingSizeLabel, "* In grams");
-            tooltip.SetToolTip(servingUpdateButton, "Update Serving Size");
-            tooltip.SetToolTip(resetButton, "Resets Everything");
-            tooltip.SetToolTip(refreshButton, "Refresh Database Content");
+            this.FillListbox();
 
+            this.ToolTips();
+
+            this.SetDefaultValues();
+        }
+
+        private void SetDefaultValues()
+        {
             //setting meal calculator textbox to 0 
             meal1CaloriesTextBox.Text = "0";
             meal1ProteinTextBox.Text = "0";
@@ -98,12 +95,25 @@ namespace Nutrition_Facts
             inputRdiMealCalculatorTextBox.Text = "2000";
         }
 
+        private void ToolTips()
+        {
+            ToolTip tooltip = new ToolTip();
+            tooltip.SetToolTip(calorieChart, "Calorie breakdown to illustrate nutritions taken");
+            tooltip.SetToolTip(rdiChart, "Amount of calories in relation to set RDI");
+            tooltip.SetToolTip(inputRDIMealCalculatorLabel, "* Average RDI is 2000 Calories");
+            tooltip.SetToolTip(inputRDILabel, "* Average RDI is 2000 Calories");
+            tooltip.SetToolTip(servingSizeLabel, "* In grams");
+            tooltip.SetToolTip(servingUpdateButton, "Update Serving Size");
+            tooltip.SetToolTip(resetButton, "Resets Everything");
+            tooltip.SetToolTip(refreshButton, "Refresh Database Content");
+        }
+
         private void searchButton_Click(object sender, EventArgs e)
         {
             string input = inputTextbox.Text;
 
             listBox.SelectedItems.Clear();
-            if (input == "")
+            if (input == string.Empty)
             {
                 MessageBox.Show("It can't be left blank");
             }
@@ -127,17 +137,16 @@ namespace Nutrition_Facts
                 }
             }
         }
-        //filling listbox with database values
-        public void fill_Listbox()
+
+        public void FillListbox()
         {
             listBox.Items.Clear();
 
-            //connection
-            SqlConnection connString = DatabaseClass.GetConnection();
+            SqlConnection connection = DatabaseClass.GetConnection();
 
             try
             {
-                connString.Open();
+                connection.Open();
 
             }
             catch (Exception ex)
@@ -145,34 +154,30 @@ namespace Nutrition_Facts
                 Console.WriteLine("Exception in DBHandler", ex);
             }
 
-            string myQuery = "Select Name from Facts";
-            SqlCommand myCommand = new SqlCommand(myQuery, connString);
-            myCommand.ExecuteNonQuery();
-            //data table to fill sql data in 
-            DataTable dt = new DataTable();
-            //capturing data from mycommand
-            SqlDataAdapter da = new SqlDataAdapter(myCommand);
-            da.Fill(dt);
-            //foreach loop to gather all the data from 'Name' Column through datatable 
-            foreach (DataRow dr in dt.Rows)
+            string query = "Select Name from Facts";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.ExecuteNonQuery();
+
+            DataTable dataTable = new DataTable();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+            dataAdapter.Fill(dataTable);
+
+            foreach (DataRow dr in dataTable.Rows)
             {
                 listBox.Items.Add(dr["Name"].ToString());
-
             }
 
-            connString.Close();
-
+            connection.Close();
         }
 
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //connection
-            SqlConnection connString = DatabaseClass.GetConnection();
+            SqlConnection connection = DatabaseClass.GetConnection();
 
             try
             {
-                connString.Open();
-
+                connection.Open();
             }
             catch (Exception ex)
             {
@@ -183,28 +188,23 @@ namespace Nutrition_Facts
             }
             else
             {
-                //selecting the item from the listbox 
-                string myQuery = "Select * from Facts Where Name ='" + listBox.SelectedItem.ToString() + "'";
-                SqlCommand myCommand = new SqlCommand(myQuery, connString);
-                myCommand.ExecuteNonQuery();
+                string query = "Select * from Facts Where Name ='" + listBox.SelectedItem.ToString() + "'";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.ExecuteNonQuery();
 
-                dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(myCommand);
-                da.Fill(dt);
+                dataTable = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                dataAdapter.Fill(dataTable);
 
-                foreach (DataRow dr in dt.Rows)
+                foreach (DataRow row in dataTable.Rows)
                 {
-                    //selected items row is being added to various text boxes
-                    quantityTextbox.Text = dr["Quantity"].ToString();
-                    caloriesTextbox.Text = dr["Calorie"].ToString();
-                    proteinTextbox.Text = dr["Protein"].ToString();
-                    carbTextbox.Text = dr["Carb"].ToString();
-                    fatTextbox.Text = dr["Fat"].ToString();
-
+                    quantityTextbox.Text = row["Quantity"].ToString();
+                    caloriesTextbox.Text = row["Calorie"].ToString();
+                    proteinTextbox.Text = row["Protein"].ToString();
+                    carbTextbox.Text = row["Carb"].ToString();
+                    fatTextbox.Text = row["Fat"].ToString();
                 }
-                //saving the information of serving size in static class
                 ServingSize.servingSize = quantityTextbox.Text;
-                //saving the initial nutritions values that can be used for update
                 string caloriesTemp = caloriesTextbox.Text;
                 string proteinTemp = proteinTextbox.Text;
                 string carbTemp = carbTextbox.Text;
@@ -214,55 +214,48 @@ namespace Nutrition_Facts
                 ServingSize.initialCarb = carbTemp;
                 ServingSize.initialFat = fatTemp;
 
-
                 calorieLabel.Text = "There are " + caloriesTextbox.Text + " Calories in " + quantityTextbox.Text + " grams of " + Environment.NewLine + listBox.SelectedItem;
 
-                //using this method will tell us the the percentages of the calorie breakdown
-                InputForCalorieBreakdown(fatTextbox.Text, carbTextbox.Text, proteinTextbox.Text, caloriesTextbox.Text);
-                //output
+                this.CalorieBreakdown(fatTextbox.Text, carbTextbox.Text, proteinTextbox.Text, caloriesTextbox.Text);
+
                 caloriebreakdownLabel.Text = "Calorie breakdown:" + Environment.NewLine + doubleTotalProteinPercentage + "% Protein"
                     + Environment.NewLine + doubleTotalCarbPercentage
                     + "% Carbohydrate" + Environment.NewLine + doubleTotalFatPercentage + "% Fat";
-                //generating calorie breakdown chart
-                GenerateCalorieGraph();
 
+                this.GenerateCalorieGraph();
 
-                //generating rdi chart based on the rdi of 2000 or input 
                 if (inputRdiTextBox.Text == "")
                 {
-                    decimal averageRDIPercentage = AverageRDI(decimal.Parse(caloriesTextbox.Text));
+                    decimal averageRDIPercentage = this.PercentageOfAverageRDI(decimal.Parse(caloriesTextbox.Text));
+
                     rdiLabel.Text = Math.Round(averageRDIPercentage).ToString() + "% on an average RDI of 2000 calories.";
                 }
                 //if the rdi textbox is not empty then calculate it by the input.
                 else
-
                 {
-                    decimal rdiPercentage = RDI(decimal.Parse(inputRdiTextBox.Text), decimal.Parse(caloriesTextbox.Text));
+                    decimal rdiPercentage = CalculateRDIPercentage(decimal.Parse(inputRdiTextBox.Text), decimal.Parse(caloriesTextbox.Text));
                     rdiLabel.Text = Math.Round(rdiPercentage).ToString() + "% on a RDI of " + inputRdiTextBox.Text + " calories.";
                 }
-                GenerateRDIChart(int.Parse(inputRdiTextBox.Text), int.Parse(caloriesTextbox.Text));
+                this.GenerateRDIChart(int.Parse(inputRdiTextBox.Text), int.Parse(caloriesTextbox.Text));
             }
-
-            connString.Close();
+            connection.Close();
         }
 
         private void inputTextbox_TextChanged(object sender, EventArgs e)
         {
             //DataView filter = dt.DefaultView;
             //filter.RowFilter = ""
-
         }
-        //refreshes the listbox whenever an item is added
+
         private void refreshButton_Click(object sender, EventArgs e)
         {
             listBox.Items.Clear();
 
-            //connection
-            SqlConnection connString = DatabaseClass.GetConnection();
+            SqlConnection connection = DatabaseClass.GetConnection();
 
             try
             {
-                connString.Open();
+                connection.Open();
 
             }
             catch (Exception ex)
@@ -270,111 +263,97 @@ namespace Nutrition_Facts
                 Console.WriteLine("Exception in DBHandler", ex);
             }
 
-            string myQuery = "Select Name from Facts";
-            SqlCommand myCommand = new SqlCommand(myQuery, connString);
-            myCommand.ExecuteNonQuery();
-            //data table to fill sql data in 
-            DataTable dt = new DataTable();
-            //capturing data from mycommand
-            SqlDataAdapter da = new SqlDataAdapter(myCommand);
-            da.Fill(dt);
-            //foreach loop to gather all the data from 'Name' Column through datatable 
-            foreach (DataRow dr in dt.Rows)
-            {
-                listBox.Items.Add(dr["Name"].ToString());
+            string query = "Select Name from Facts";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.ExecuteNonQuery();
+            DataTable dataTable = new DataTable();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+            dataAdapter.Fill(dataTable);
 
+            foreach (DataRow row in dataTable.Rows)
+            {
+                listBox.Items.Add(row["Name"].ToString());
             }
 
-            connString.Close();
+            connection.Close();
             MessageBox.Show("Data Refreshed!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
-        //backs up database
+
         private void backupDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //connection
-            SqlConnection connString = DatabaseClass.GetConnection();
+            SqlConnection connection = DatabaseClass.GetConnection();
 
             try
             {
-                connString.Open();
+                connection.Open();
 
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Exception in DBHandler", ex);
             }
-            //opens the sae dialog
+
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                //the path which the user selects
-                var path = saveFileDialog.FileName;
+                var filePath = saveFileDialog.FileName;
 
                 //backup data from database into a text file
-                using (StreamWriter sw = new StreamWriter(path))
+                using (StreamWriter streamWriter = new StreamWriter(filePath))
                 {
-                    //Select all from Facts table
-                    string myQuery = "Select * from Facts";
-                    SqlCommand myCommand = new SqlCommand(myQuery, connString);
+                    string query = "Select * from Facts";
+                    SqlCommand command = new SqlCommand(query, connection);
 
-                    //reading data from database
-                    using (SqlDataReader reader = myCommand.ExecuteReader())
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
                         try
-                        {   //writing the data off the database into a text file
-                            sw.WriteLine("Name, Calorie, Protein, Carb, Fat, Quantity");
+                        {
+                            streamWriter.WriteLine("Name, Calorie, Protein, Carb, Fat, Quantity");
                             while (reader.Read())
                             {
-                                sw.WriteLine("");
-                                sw.Write(reader["Name"].ToString());
-                                sw.Write(", " + reader["Calorie"].ToString());
-                                sw.Write(", " + reader["Protein"].ToString());
-                                sw.Write(", " + reader["Carb"].ToString());
-                                sw.Write(", " + reader["Fat"].ToString());
-                                sw.Write(", " + reader["Quantity"].ToString());
+                                streamWriter.WriteLine("");
+                                streamWriter.Write(reader["Name"].ToString());
+                                streamWriter.Write(", " + reader["Calorie"].ToString());
+                                streamWriter.Write(", " + reader["Protein"].ToString());
+                                streamWriter.Write(", " + reader["Carb"].ToString());
+                                streamWriter.Write(", " + reader["Fat"].ToString());
+                                streamWriter.Write(", " + reader["Quantity"].ToString());
 
                             }
-                            sw.WriteLine("");
-                            sw.WriteLine("---------------------------------");
-                            sw.WriteLine("Backup Generated at : " + DateTime.Now);
-                            sw.WriteLine("---------------------------------");
-                            sw.Close();
+                            streamWriter.WriteLine("");
+                            streamWriter.WriteLine("---------------------------------");
+                            streamWriter.WriteLine("Backup Generated at : " + DateTime.Now);
+                            streamWriter.WriteLine("---------------------------------");
+                            streamWriter.Close();
                             reader.Close();
                             MessageBox.Show("Backup Created!");
-
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Backup Cannot be Created!");
+                            MessageBox.Show("Backup Cannot be Created!\n Error: " + ex.Message);
                         }
                     }
                 }
             }
-            connString.Close();
+            connection.Close();
         }
-        //exit the application
+        
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Dialog box to prompt user for exiting the application
             DialogResult result = MessageBox.Show("Do you want to exit the application", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 Application.Exit();
             }
-            else
-            {
-            }
         }
 
         private void messagingServiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void addFoodTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //opens a new form called add class
-            Add add = new Add();
+            AddFoodInDb add = new AddFoodInDb();
             add.ShowDialog();
         }
 
@@ -418,11 +397,9 @@ namespace Nutrition_Facts
                         {
                             appDeploy.Update();
                             Application.Restart();
-
                         }
                         catch (Exception exc)
                         {
-
                             MessageBox.Show(exc.Message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
@@ -439,14 +416,12 @@ namespace Nutrition_Facts
         {
             // TODO: This line of code loads data into the 'databaseDataSet.Facts' table. You can move, or remove it, as needed.
             this.factsTableAdapter.Fill(this.databaseDataSet.Facts);
-
         }
 
         public void GenerateCalorieGraph()
         {
-            //Refreshing the point on the chart.
             calorieChart.Series[0].Points.Clear();
-            //if the label is empty then output an error message
+
             if (caloriebreakdownLabel.Text == "")
             {
                 MessageBox.Show("Please select a food type to generate the chart!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -454,14 +429,11 @@ namespace Nutrition_Facts
 
             else
             {
-                //output the values from the variables 
                 try
                 {
                     calorieChart.Series["Series"].Points.AddXY("Fat", doubleTotalFatPercentage);
                     calorieChart.Series["Series"].Points.AddXY("Protein", doubleTotalProteinPercentage);
                     calorieChart.Series["Series"].Points.AddXY("Carbohydrate", doubleTotalCarbPercentage);
-                    //chart.Series["Series"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-
                 }
                 catch (Exception exc)
                 {
@@ -469,75 +441,45 @@ namespace Nutrition_Facts
                 }
             }
         }
-        //creating a percentage of selected food type in rdi 
+
         public void GenerateRDIChart(int rdi, int calories)
         {
-            /* //if the rdi textbox is empty then output the chart based on average rdi
-             if (inputRdiTextBox.Text == "" || inputRdiMealCalculatorTextBox.Text == "")
-             {
-                 int finalAverageRDI = 2000 - calories;
-                 //Refreshing the point on the chart.
-                 rdiChart.Series[0].Points.Clear();
-                 //output the values from the variables 
-                 try
-                 {
-                     rdiChart.Series["Series"].Points.AddXY("RDI", finalAverageRDI.ToString());
-                     rdiChart.Series["Series"].Points.AddXY("Calories", calories.ToString());
-                     //chart.Series["Series"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-
-                 }
-                 catch (Exception exc)
-                 {
-                     MessageBox.Show("An error occured! " + exc, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                 }
-             }*/
             //if the input of RDI is bigger than calories then output the chart based on the input
             if (decimal.Parse(rdi.ToString()) > decimal.Parse(calories.ToString()))
             {
-                //subtracting rdi from calories of the food type to show how much rdi have left.
                 int finalRDI = int.Parse(rdi.ToString()) - int.Parse(calories.ToString());
-                //Refreshing the point on the chart.
+
                 rdiChart.Series[0].Points.Clear();
-                //output the values from the variables 
+
                 try
                 {
                     rdiChart.Series["Series"].Points.AddXY("RDI", finalRDI.ToString());
                     rdiChart.Series["Series"].Points.AddXY("Calories", calories.ToString());
-                    //chart.Series["Series"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-
                 }
                 catch (Exception exc)
                 {
                     MessageBox.Show("An error occured! " + exc, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }//if the calories is bigger than rdi then output an error message
-            else
-            {
-
             }
         }
-        //finding the percenate of rdi
-        public decimal RDI(decimal rdi, decimal calories)
+
+        public decimal CalculateRDIPercentage(decimal rdi, decimal calories)
         {
-            //amount of calories in selected food divided by the recommended daily intake gives the percentage
             decimal percentage = (calories / rdi) * 100;
             return percentage;
-
         }
-        //the percenatge of an average rdi
-        public decimal AverageRDI(decimal calories)
+
+        public decimal PercentageOfAverageRDI(decimal calories)
         {
-            //amount of calories in selected food divided by the recommended daily intake gives the percentage
             decimal percentage = (calories / 2000) * 100;
             return percentage;
-
         }
+
         public bool RDICheck(decimal rdi, decimal calories)
         {
             //checking to see if the set rdi is smaller than the amout of calories
             if (rdi < calories)
             {
-
                 MessageBox.Show("The amount of calories surpassed your RDI, cannot output a chart!", "Warning",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 rdiReturn = true;
@@ -574,7 +516,7 @@ namespace Nutrition_Facts
 
                     calorieLabel.Text = "There are " + caloriesTextbox.Text + " Calories in " + quantityTextbox.Text + " grams of " + Environment.NewLine + listBox.SelectedItem;
                     //using this method will tell us the the percentages of the calorie breakdown
-                    InputForCalorieBreakdown(fatTextbox.Text, carbTextbox.Text, proteinTextbox.Text, caloriesTextbox.Text);
+                    CalorieBreakdown(fatTextbox.Text, carbTextbox.Text, proteinTextbox.Text, caloriesTextbox.Text);
                     //output
                     caloriebreakdownLabel.Text = "Calorie breakdown:" + Environment.NewLine + doubleTotalProteinPercentage + "% Protein"
                         + Environment.NewLine + doubleTotalCarbPercentage
@@ -583,7 +525,7 @@ namespace Nutrition_Facts
                     GenerateCalorieGraph();
                     //rdi chart
                     GenerateRDIChart(int.Parse(inputRdiTextBox.Text), int.Parse(caloriesTextbox.Text));
-                    decimal rdiPercentage = RDI(decimal.Parse(inputRdiTextBox.Text), decimal.Parse(caloriesTextbox.Text));
+                    decimal rdiPercentage = CalculateRDIPercentage(decimal.Parse(inputRdiTextBox.Text), decimal.Parse(caloriesTextbox.Text));
                     rdiLabel.Text = Math.Round(rdiPercentage).ToString() + "% on a RDI of " + inputRdiTextBox.Text + " calories.";
 
                 }
@@ -665,7 +607,7 @@ namespace Nutrition_Facts
                             + " grams of " + Environment.NewLine + listBox.SelectedItem;
                         MessageBox.Show("Updated!", "Info", MessageBoxButtons.OK, MessageBoxIcon.None);
                         //calculate the percentage based on input rdi 
-                        decimal rdiPercentage = RDI(decimal.Parse(inputRdiTextBox.Text), decimal.Parse(caloriesTextbox.Text));
+                        decimal rdiPercentage = CalculateRDIPercentage(decimal.Parse(inputRdiTextBox.Text), decimal.Parse(caloriesTextbox.Text));
                         rdiLabel.Text = Math.Round(rdiPercentage).ToString() + "% on a RDI of " + inputRdiTextBox.Text + " calories.";
 
                         GenerateRDIChart(int.Parse(inputRdiTextBox.Text), int.Parse(caloriesTextbox.Text));
@@ -1468,9 +1410,6 @@ namespace Nutrition_Facts
             public static string initialProtein = "0";
             public static string initialCarb = "0";
             public static string initialFat = "0";
-
-
-
         }
 
         //Calculates the total of every nutrition
@@ -1523,7 +1462,7 @@ namespace Nutrition_Facts
                 try
                 {
                     //generating the Calorie breakdown Chart
-                    InputForCalorieBreakdown(totalFatTextBox.Text, totalCarbTextBox.Text, totalProteinTextBox.Text, totalCaloriesTextbox.Text);
+                    CalorieBreakdown(totalFatTextBox.Text, totalCarbTextBox.Text, totalProteinTextBox.Text, totalCaloriesTextbox.Text);
                     GenerateCalorieGraph();
                     //output for calorie breakdown
                     calorieLabel.Text = "There are " + totalCaloriesTextbox.Text + " Calories";
@@ -1556,7 +1495,7 @@ namespace Nutrition_Facts
                     //generating the RDI chart
                     GenerateRDIChart(int.Parse(inputRdiMealCalculatorTextBox.Text), int.Parse(totalCaloriesTextbox.Text));
                     //if the rdi textbox is not empty then calculate it by the input.
-                    decimal rdiPercentage = RDI(decimal.Parse(inputRdiMealCalculatorTextBox.Text), decimal.Parse(totalCaloriesTextbox.Text));
+                    decimal rdiPercentage = CalculateRDIPercentage(decimal.Parse(inputRdiMealCalculatorTextBox.Text), decimal.Parse(totalCaloriesTextbox.Text));
                     rdiLabel.Text = Math.Round(rdiPercentage).ToString() + "% on a RDI of " + inputRdiMealCalculatorTextBox.Text + " calories.";
 
                 }
@@ -1571,10 +1510,8 @@ namespace Nutrition_Facts
         }
 
         //Calculates the percentage of nutritions based on the input and the class Calorie_Breakdown 
-        public void InputForCalorieBreakdown(string fat, string carb, string protein, string calories)
+        public void CalorieBreakdown(string fat, string carb, string protein, string calories)
         {
-            //Calorie breakdown in fat, protein and carbs.
-            //First we get the nutritions in calories then acquire the percentage of it  
             decimal fatCalories = Calorie_Breakdown.fatToCalories(decimal.Parse(fat));
             decimal totalFatPercentage = Calorie_Breakdown.caloriesInFat(fatCalories, decimal.Parse(calories));
             doubleTotalFatPercentage = double.Parse(Math.Round(totalFatPercentage).ToString());
@@ -1586,7 +1523,6 @@ namespace Nutrition_Facts
             decimal proteinCalories = Calorie_Breakdown.proteinToCalories(decimal.Parse(protein));
             decimal totalProteinPercentage = Calorie_Breakdown.caloriesinProtein(proteinCalories, decimal.Parse(calories));
             doubleTotalProteinPercentage = double.Parse(Math.Round(totalProteinPercentage).ToString());
-
         }
         //calculates the percentage of surpass off the rdi from calorie intake
         public decimal CalorieSurpass(decimal calorie, decimal rdi)
@@ -2297,7 +2233,7 @@ namespace Nutrition_Facts
         private void bMRCalculatorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BMRForm bmr = new BMRForm();
-            bmr.ShowDialog();   
+            bmr.ShowDialog();
         }
     }
 }

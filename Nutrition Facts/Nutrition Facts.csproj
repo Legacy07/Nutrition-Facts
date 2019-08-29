@@ -98,11 +98,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Add.cs">
+    <Compile Include="AddFoodInDb.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Add.Designer.cs">
-      <DependentUpon>Add.cs</DependentUpon>
+    <Compile Include="AddFoodInDb.Designer.cs">
+      <DependentUpon>AddFoodInDb.cs</DependentUpon>
     </Compile>
     <Compile Include="BMRForm.cs">
       <SubType>Form</SubType>
@@ -130,8 +130,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Add.resx">
-      <DependentUpon>Add.cs</DependentUpon>
+    <EmbeddedResource Include="AddFoodInDb.resx">
+      <DependentUpon>AddFoodInDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BMRForm.resx">
       <DependentUpon>BMRForm.cs</DependentUpon>

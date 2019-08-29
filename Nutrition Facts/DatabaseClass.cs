@@ -14,23 +14,21 @@ namespace Nutrition_Facts
 
         public static SqlConnection GetConnection()
         {
-            //connection path
-            string connString;
-            connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\Database.mdf;Integrated Security=True;";
-            return new SqlConnection(connString);
+            string databasePath;
+            databasePath = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\Database.mdf;Integrated Security=True;";
+            return new SqlConnection(databasePath);
         }
 
-        public static void Facts(string name, string cal, string pro, string carb, string fat, string qua)
+        public static void InsertFoods(string name, string calories, string protein, string carb, string fat, string quantity)
         {
-            SqlConnection connString = GetConnection();
-            //to add data in parent table in the database
-            string myQuery = "INSERT INTO Facts( Name, Calorie, Protein, Carb, Fat, Quantity) VALUES ('" + name + "' , '" + cal + "', '" + pro + "',  '" + carb + "',  '" + fat + "',  '" + qua + "')";
-            SqlCommand myCommand = new SqlCommand(myQuery, connString);
+            SqlConnection connection = GetConnection();
+            string myQuery = "INSERT INTO Facts( Name, Calorie, Protein, Carb, Fat, Quantity) VALUES ('" + name + "' , '" + calories + "', '" + protein + "',  '" + carb + "',  '" + fat + "',  '" + quantity + "')";
+            SqlCommand command = new SqlCommand(myQuery, connection);
 
             try
             {
-                connString.Open();
-                myCommand.ExecuteNonQuery();
+                connection.Open();
+                command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -38,7 +36,7 @@ namespace Nutrition_Facts
             }
             finally
             {
-                connString.Close();
+                connection.Close();
             }
         }
 

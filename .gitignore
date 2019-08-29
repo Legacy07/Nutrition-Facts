@@ -1,0 +1,6 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/Nutrition Facts/v15/Server/sqlite3
+/Nutrition Facts/bin/Debug/app.publish/Application Files/Nutrition Facts_1_0_0_17
