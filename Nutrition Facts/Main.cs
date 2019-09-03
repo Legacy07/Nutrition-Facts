@@ -475,17 +475,18 @@ namespace Nutrition_Facts
             return percentage;
         }
 
-        public bool RDICheck(decimal rdi, decimal calories)
+        public bool RDICheck(decimal dailyDesiredIntake, decimal totalConsumedCalories)
         {
             //checking to see if the set rdi is smaller than the amout of calories
-            if (rdi < calories)
+            if (dailyDesiredIntake < totalConsumedCalories)
             {
-                MessageBox.Show("The amount of calories surpassed your RDI, cannot output a chart!", "Warning",
+                MessageBox.Show("The amount of calories surpassed your daily intake, cannot output a chart!", "Warning",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 rdiReturn = true;
             }
             return true;
         }
+        
         //calculating the rdi and outputs a chart
         private void calculateButton_Click(object sender, EventArgs e)
         {
@@ -535,6 +536,7 @@ namespace Nutrition_Facts
                 MessageBox.Show("Go to 'Meal Calculator' tab!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
+
         //calculates the serving size 
         public decimal CalculateServingSize(decimal initialServing, decimal inputServingSize)
         {
@@ -543,16 +545,15 @@ namespace Nutrition_Facts
             decimal total = inputServingSize / initialServing;
 
             return total;
-
         }
         //updates the serving size
         private void servingUpdateButton_Click(object sender, EventArgs e)
         {
-            if (caloriesTextbox.Text == "")
+            if (caloriesTextbox.Text == string.Empty)
             {
                 MessageBox.Show("Select a Food Type!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (quantityTextbox.Text == "")
+            else if (quantityTextbox.Text == string.Empty)
             {
                 MessageBox.Show("Field cannot be empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -562,9 +563,7 @@ namespace Nutrition_Facts
             }//************not quite working, this only works at inital serving size.***********
 
             else
-
             {
-                //First off im cheking if the updated calories is not surpassing the input rdi, if it is then outputs an error message
                 //getting the result of dividing input serving size from serving size of the food type
                 decimal answer = CalculateServingSize(decimal.Parse(ServingSize.servingSize.ToString()), decimal.Parse(quantityTextbox.Text));
                 //with the answer acquired above, it times calories to get the correct answer relating to the serving size
@@ -573,7 +572,9 @@ namespace Nutrition_Facts
                 decimal newProtein = answer * decimal.Parse(ServingSize.initialProtein);
                 decimal newCarb = answer * decimal.Parse(ServingSize.initialCarb);
                 decimal newFat = answer * decimal.Parse(ServingSize.initialFat);
-                //if rdi is smaller than calories then output a message
+
+                // updating other areas prior to the new values above.
+
                 if (decimal.Parse(inputRdiTextBox.Text) < newCalories)
                 {
                     //rdi check is true
@@ -619,7 +620,6 @@ namespace Nutrition_Facts
                             meal1ProteinTextBox.Text = proteinTextbox.Text;
                             meal1CarbTextbox.Text = carbTextbox.Text;
                             meal1FatTextBox.Text = fatTextbox.Text;
-
                         }
                         //meal 2
                         else if (listBox.SelectedItem.ToString().Equals(meal2NameTextbox.Text))
@@ -692,12 +692,9 @@ namespace Nutrition_Facts
                             sauce4CarbTextBox.Text = carbTextbox.Text;
                             sauce4FatTextBox.Text = fatTextbox.Text;
                         }
-
-
                     }
                     catch (Exception exc)
                     {
-
                         MessageBox.Show("Error Occured: " + exc);
                     }
                 }
@@ -1451,7 +1448,6 @@ namespace Nutrition_Facts
         //Generating Rdi after meal calculation
         private void generateTotalChartButton_Click(object sender, EventArgs e)
         {
-
             //if the textbox is empty then output an error message
             if (totalCaloriesTextbox.Text == "")
             {
@@ -1474,7 +1470,7 @@ namespace Nutrition_Facts
                 }
                 catch (Exception)
                 {
-
+                    throw new Exception();
                 }
             }
 

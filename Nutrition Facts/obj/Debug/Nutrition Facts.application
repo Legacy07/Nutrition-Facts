@@ -8,7 +8,7 @@
         <beforeApplicationStartup />
       </update>
     </subscription>
-    <deploymentProvider codebase="http://osmanli-torunu/NutritionFacts/Nutrition%20Facts.application" />
+    <deploymentProvider codebase="http://desktop-dnsliiq/NutritionFacts/Nutrition%20Facts.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
@@ -21,7 +21,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+vzfg5Mi8BCPXcvX7p3wKWaAgotJKFmW0QDyE6olPU4=</dsig:DigestValue>
+        <dsig:DigestValue>VGQkXV8gvQw2UtnKNNlzkk80tMmEkygMayPuwOw6/90=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
