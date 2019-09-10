@@ -111,6 +111,7 @@
     <Compile Include="BMRForm.Designer.cs">
       <DependentUpon>BMRForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CalorieBreakDownResults.cs" />
     <Compile Include="Calorie_Breakdown.cs" />
     <Compile Include="DatabaseClass.cs" />
     <Compile Include="DatabaseDataSet.Designer.cs">
@@ -132,6 +133,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Repository.cs" />
     <EmbeddedResource Include="AddFoodInDb.resx">
       <DependentUpon>AddFoodInDb.cs</DependentUpon>
     </EmbeddedResource>

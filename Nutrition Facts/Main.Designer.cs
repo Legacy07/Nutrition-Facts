@@ -36,13 +36,14 @@
             this.inputTextbox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.calorieLabel = new System.Windows.Forms.Label();
+            this.caloriebreakdownLabel = new System.Windows.Forms.Label();
             this.addMealButton = new System.Windows.Forms.Button();
             this.searchFoodLabel = new System.Windows.Forms.Label();
             this.calorieChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.calorieLabel = new System.Windows.Forms.Label();
-            this.caloriebreakdownLabel = new System.Windows.Forms.Label();
             this.servingUpdateButton = new System.Windows.Forms.Button();
             this.quantityTextbox = new System.Windows.Forms.TextBox();
             this.fatTextbox = new System.Windows.Forms.TextBox();
@@ -71,11 +72,10 @@
             this.databaseDataSet = new Nutrition_Facts.DatabaseDataSet();
             this.factsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.factsTableAdapter = new Nutrition_Facts.DatabaseDataSetTableAdapters.FactsTableAdapter();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calorieChart)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factsBindingSource)).BeginInit();
@@ -125,6 +125,47 @@
             this.groupBox.Size = new System.Drawing.Size(1252, 667);
             this.groupBox.TabIndex = 3;
             this.groupBox.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1091, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(155, 95);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Show Meals";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBox5.Controls.Add(this.calorieLabel);
+            this.groupBox5.Controls.Add(this.caloriebreakdownLabel);
+            this.groupBox5.Location = new System.Drawing.Point(871, 373);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(375, 267);
+            this.groupBox5.TabIndex = 18;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Calorie Breakdown";
+            // 
+            // calorieLabel
+            // 
+            this.calorieLabel.AutoSize = true;
+            this.calorieLabel.Location = new System.Drawing.Point(6, 22);
+            this.calorieLabel.Name = "calorieLabel";
+            this.calorieLabel.Size = new System.Drawing.Size(99, 20);
+            this.calorieLabel.TabIndex = 13;
+            this.calorieLabel.Text = "calorie label";
+            // 
+            // caloriebreakdownLabel
+            // 
+            this.caloriebreakdownLabel.AutoSize = true;
+            this.caloriebreakdownLabel.Location = new System.Drawing.Point(6, 65);
+            this.caloriebreakdownLabel.Name = "caloriebreakdownLabel";
+            this.caloriebreakdownLabel.Size = new System.Drawing.Size(184, 20);
+            this.caloriebreakdownLabel.TabIndex = 14;
+            this.caloriebreakdownLabel.Text = "calorie breakdown label";
             // 
             // addMealButton
             // 
@@ -203,34 +244,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nutrition Summary";
             // 
-            // groupBox5
-            // 
-            this.groupBox5.BackColor = System.Drawing.SystemColors.Window;
-            this.groupBox5.Controls.Add(this.calorieLabel);
-            this.groupBox5.Controls.Add(this.caloriebreakdownLabel);
-            this.groupBox5.Location = new System.Drawing.Point(871, 373);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(375, 267);
-            this.groupBox5.TabIndex = 18;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Calorie Breakdown";
-            // 
-            // calorieLabel
-            // 
-            this.calorieLabel.AutoSize = true;
-            this.calorieLabel.Location = new System.Drawing.Point(6, 22);
-            this.calorieLabel.Name = "calorieLabel";
-            this.calorieLabel.Size = new System.Drawing.Size(0, 20);
-            this.calorieLabel.TabIndex = 13;
-            // 
-            // caloriebreakdownLabel
-            // 
-            this.caloriebreakdownLabel.AutoSize = true;
-            this.caloriebreakdownLabel.Location = new System.Drawing.Point(6, 65);
-            this.caloriebreakdownLabel.Name = "caloriebreakdownLabel";
-            this.caloriebreakdownLabel.Size = new System.Drawing.Size(0, 20);
-            this.caloriebreakdownLabel.TabIndex = 14;
-            // 
             // servingUpdateButton
             // 
             this.servingUpdateButton.AutoSize = true;
@@ -242,7 +255,7 @@
             this.servingUpdateButton.TabIndex = 17;
             this.servingUpdateButton.Text = "Update";
             this.servingUpdateButton.UseVisualStyleBackColor = false;
-            this.servingUpdateButton.Click += new System.EventHandler(this.servingUpdateButton_Click);
+            ////this.servingUpdateButton.Click += new System.EventHandler(this.servingUpdateButton_Click);
             // 
             // quantityTextbox
             // 
@@ -484,17 +497,6 @@
             // 
             this.factsTableAdapter.ClearBeforeFill = true;
             // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1091, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 95);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Show Meals";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -511,11 +513,11 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calorieChart)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
