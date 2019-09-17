@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>m626rYk/52KNMwK959gPa+6aEPLZBXsR19aJ0ytIb5Q=</dsig:DigestValue>
+        <dsig:DigestValue>zHNOelmGprKymzfQSs6PWFhRPRjrT4w5qLFro6PCTik=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -81,7 +81,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>jee4kBF8oO8qEyfdSImertYrcQNG4dzwG+fSD5bN5vQ=</dsig:DigestValue>
+      <dsig:DigestValue>gtrhhIRhdWpP/TGRTofjw2rTrAsw6AzisRBfN4I0b7s=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Database_log.ldf" size="8388608" writeableType="applicationData">
@@ -90,7 +90,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>WA+BzOL+p3fnt8KKwwh+Fpfr4ijLLhU2NddCPwZtJnQ=</dsig:DigestValue>
+      <dsig:DigestValue>8VKnOSYfI8pgmawqzMtjoDlTd74TCUG4K9/M/i22FZA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Nutrition Facts.exe.config" size="189">

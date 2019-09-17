@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabLayout = new System.Windows.Forms.TabControl();
             this.breakfastTab = new System.Windows.Forms.TabPage();
             this.lunchTab = new System.Windows.Forms.TabPage();
@@ -193,33 +193,33 @@
             // 
             // calorieChart
             // 
-            chartArea2.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
-            chartArea2.Area3DStyle.Enable3D = true;
-            chartArea2.Area3DStyle.Inclination = 0;
-            chartArea2.Area3DStyle.IsRightAngleAxes = false;
-            chartArea2.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
-            chartArea2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            chartArea2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.Center;
-            chartArea2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Percent90;
-            chartArea2.BorderColor = System.Drawing.Color.Transparent;
-            chartArea2.BorderWidth = 0;
-            chartArea2.Name = "ChartArea1";
-            chartArea2.ShadowColor = System.Drawing.Color.Black;
-            this.calorieChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.calorieChart.Legends.Add(legend2);
+            chartArea4.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
+            chartArea4.Area3DStyle.Enable3D = true;
+            chartArea4.Area3DStyle.Inclination = 0;
+            chartArea4.Area3DStyle.IsRightAngleAxes = false;
+            chartArea4.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
+            chartArea4.BackColor = System.Drawing.SystemColors.ScrollBar;
+            chartArea4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.Center;
+            chartArea4.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.Percent90;
+            chartArea4.BorderColor = System.Drawing.Color.Transparent;
+            chartArea4.BorderWidth = 0;
+            chartArea4.Name = "ChartArea1";
+            chartArea4.ShadowColor = System.Drawing.Color.Black;
+            this.calorieChart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.calorieChart.Legends.Add(legend4);
             this.calorieChart.Location = new System.Drawing.Point(938, 37);
             this.calorieChart.Name = "calorieChart";
             this.calorieChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series2.BorderColor = System.Drawing.Color.White;
-            series2.BorderWidth = 5;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "Series";
-            series2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series2.ShadowColor = System.Drawing.Color.DimGray;
-            this.calorieChart.Series.Add(series2);
+            series4.BorderColor = System.Drawing.Color.White;
+            series4.BorderWidth = 5;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series4.Legend = "Legend1";
+            series4.Name = "Series";
+            series4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
+            series4.ShadowColor = System.Drawing.Color.DimGray;
+            this.calorieChart.Series.Add(series4);
             this.calorieChart.Size = new System.Drawing.Size(399, 295);
             this.calorieChart.TabIndex = 18;
             // 
@@ -383,7 +383,9 @@
             this.Controls.Add(this.calorieChart);
             this.Controls.Add(this.tabLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MealsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Meals";
             this.tabLayout.ResumeLayout(false);
             this.breakfastTab.ResumeLayout(false);

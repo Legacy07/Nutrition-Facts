@@ -4,3 +4,16 @@
 
 /.vs/Nutrition Facts/v15/Server/sqlite3
 /Nutrition Facts/bin/Debug/app.publish/Application Files/Nutrition Facts_1_0_0_17
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
