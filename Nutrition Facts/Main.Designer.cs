@@ -36,7 +36,7 @@
             this.inputTextbox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.showMealsButton = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.calorieLabel = new System.Windows.Forms.Label();
             this.caloriebreakdownLabel = new System.Windows.Forms.Label();
@@ -87,7 +87,7 @@
             this.inputTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inputTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputTextbox.ForeColor = System.Drawing.SystemColors.Window;
-            this.inputTextbox.Location = new System.Drawing.Point(471, 64);
+            this.inputTextbox.Location = new System.Drawing.Point(517, 61);
             this.inputTextbox.Name = "inputTextbox";
             this.inputTextbox.Size = new System.Drawing.Size(296, 23);
             this.inputTextbox.TabIndex = 0;
@@ -100,7 +100,7 @@
             this.searchButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.Location = new System.Drawing.Point(736, 61);
+            this.searchButton.Location = new System.Drawing.Point(782, 58);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(30, 30);
             this.searchButton.TabIndex = 1;
@@ -109,7 +109,7 @@
             // 
             // groupBox
             // 
-            this.groupBox.Controls.Add(this.button1);
+            this.groupBox.Controls.Add(this.showMealsButton);
             this.groupBox.Controls.Add(this.groupBox5);
             this.groupBox.Controls.Add(this.searchButton);
             this.groupBox.Controls.Add(this.addMealButton);
@@ -120,29 +120,30 @@
             this.groupBox.Controls.Add(this.listBox);
             this.groupBox.Controls.Add(this.inputTextbox);
             this.groupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox.Location = new System.Drawing.Point(37, 58);
+            this.groupBox.Location = new System.Drawing.Point(12, 58);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(1252, 667);
+            this.groupBox.Size = new System.Drawing.Size(1338, 667);
             this.groupBox.TabIndex = 3;
             this.groupBox.TabStop = false;
             // 
-            // button1
+            // showMealsButton
             // 
-            this.button1.AutoSize = true;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1091, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 95);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Show Meals";
-            this.button1.UseVisualStyleBackColor = false;
+            this.showMealsButton.AutoSize = true;
+            this.showMealsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showMealsButton.Location = new System.Drawing.Point(1114, 20);
+            this.showMealsButton.Name = "showMealsButton";
+            this.showMealsButton.Size = new System.Drawing.Size(155, 95);
+            this.showMealsButton.TabIndex = 21;
+            this.showMealsButton.Text = "Show Meals";
+            this.showMealsButton.UseVisualStyleBackColor = false;
+            this.showMealsButton.Click += new System.EventHandler(this.showMealsButton_Click);
             // 
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.SystemColors.Window;
             this.groupBox5.Controls.Add(this.calorieLabel);
             this.groupBox5.Controls.Add(this.caloriebreakdownLabel);
-            this.groupBox5.Location = new System.Drawing.Point(871, 373);
+            this.groupBox5.Location = new System.Drawing.Point(894, 373);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(375, 267);
             this.groupBox5.TabIndex = 18;
@@ -173,9 +174,9 @@
             this.addMealButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addMealButton.Image = ((System.Drawing.Image)(resources.GetObject("addMealButton.Image")));
             this.addMealButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addMealButton.Location = new System.Drawing.Point(773, 57);
+            this.addMealButton.Location = new System.Drawing.Point(819, 49);
             this.addMealButton.Name = "addMealButton";
-            this.addMealButton.Size = new System.Drawing.Size(85, 38);
+            this.addMealButton.Size = new System.Drawing.Size(104, 43);
             this.addMealButton.TabIndex = 20;
             this.addMealButton.Text = "Add";
             this.addMealButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -185,7 +186,7 @@
             // 
             this.searchFoodLabel.AutoSize = true;
             this.searchFoodLabel.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchFoodLabel.Location = new System.Drawing.Point(492, 20);
+            this.searchFoodLabel.Location = new System.Drawing.Point(538, 17);
             this.searchFoodLabel.Name = "searchFoodLabel";
             this.searchFoodLabel.Size = new System.Drawing.Size(258, 41);
             this.searchFoodLabel.TabIndex = 19;
@@ -208,7 +209,7 @@
             this.calorieChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.calorieChart.Legends.Add(legend1);
-            this.calorieChart.Location = new System.Drawing.Point(6, 373);
+            this.calorieChart.Location = new System.Drawing.Point(51, 373);
             this.calorieChart.Name = "calorieChart";
             this.calorieChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.BorderColor = System.Drawing.Color.White;
@@ -237,7 +238,7 @@
             this.groupBox2.Controls.Add(this.proteinTextbox);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.carbTextbox);
-            this.groupBox2.Location = new System.Drawing.Point(456, 373);
+            this.groupBox2.Location = new System.Drawing.Point(490, 373);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(360, 267);
             this.groupBox2.TabIndex = 14;
@@ -255,7 +256,6 @@
             this.servingUpdateButton.TabIndex = 17;
             this.servingUpdateButton.Text = "Update";
             this.servingUpdateButton.UseVisualStyleBackColor = false;
-            ////this.servingUpdateButton.Click += new System.EventHandler(this.servingUpdateButton_Click);
             // 
             // quantityTextbox
             // 
@@ -370,7 +370,7 @@
             this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.refreshButton.ImageIndex = 0;
             this.refreshButton.ImageList = this.imageList;
-            this.refreshButton.Location = new System.Drawing.Point(339, 101);
+            this.refreshButton.Location = new System.Drawing.Point(385, 98);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(24, 24);
             this.refreshButton.TabIndex = 13;
@@ -388,7 +388,7 @@
             this.listBox.Font = new System.Drawing.Font("Felix Titling", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
             this.listBox.FormattingEnabled = true;
             this.listBox.ItemHeight = 25;
-            this.listBox.Location = new System.Drawing.Point(369, 101);
+            this.listBox.Location = new System.Drawing.Point(415, 98);
             this.listBox.Name = "listBox";
             this.listBox.ScrollAlwaysVisible = true;
             this.listBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
@@ -406,7 +406,7 @@
             this.updateToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1314, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1362, 28);
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -501,7 +501,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1314, 772);
+            this.ClientSize = new System.Drawing.Size(1362, 772);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -567,7 +567,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart calorieChart;
         private System.Windows.Forms.Label searchFoodLabel;
         private System.Windows.Forms.Button addMealButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button showMealsButton;
     }
 }
 

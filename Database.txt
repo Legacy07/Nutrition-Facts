@@ -1,6 +1,8 @@
 Name, Calorie, Protein, Carb, Fat, Quantity
 
 Adana Kebab, 130, 7, 15, 5, 100
+Anchovy, 131, 20, 0, 5, 100
+Apple, 52, 0.3, 14, 0.2, 100
 Apple Crumble, 161, 1.8, 31, 3.4, 100
 Ayran, 22, 2.5, 2.7, 0.2, 100
 Aytac Yogurt, 129, 4, 5, 10, 100
@@ -8,6 +10,7 @@ Baked Potato, 93, 2.5, 21, 0.1, 100
 Baklava, 428, 6.7, 37.6, 29, 100
 Bamya, 130, 8, 7.8, 7.8, 100
 Banana, 89, 1.1, 23, 0.3, 100
+Batchleros Pasta n Sauce Tomato, 116, 4.1, 22.6, 0.7, 100
 Battered Fish, 200, 16.7, 6.7, 11.3, 100
 BBQ Sauce, 171, 0.9, 39.6, 0.2, 100
 Beans, 78, 4.7, 12.5, 0.2, 100
@@ -17,6 +20,7 @@ Bulgur, 83, 3.1, 19, 0.2, 100
 Cacik, 120, 6.1, 14.9, 4.95, 100
 Cereal, 379, 13, 68, 7, 100
 Cheese Baked Pasta, 170, 10.2, 12.2, 8.6, 100
+Cheese baked sauced pasta, 532, 26.6, 48, 16.2, 100
 Cheese Borek, 259, 10.1, 33, 9.1, 100
 Cheese Lasagna, 150, 7.7, 19, 4, 100
 Cheese Pogaca, 94, 2.6, 7.4, 6, 30
@@ -81,6 +85,7 @@ Magnum, 309, 3.6, 29, 19, 100
 Manti, 240, 10, 26, 10, 100
 Mashed Potato, 88, 1.7, 15, 2.8, 100
 Meaty Lasagna , 165, 9.9, 17, 6, 100
+Mercimek Corbasi, 56, 3.7, 8, 1.1, 100
 Mercimek Koftesi, 215, 6, 20, 13, 100
 Mozarella Cheese, 280, 28, 3.1, 17, 100
 Muhlama, 219, 6.8, 24, 11, 100
@@ -96,6 +101,7 @@ Pastirma, 160, 30, 2, 3, 100
 Patatesli Borek, 230, 5, 35, 7, 100
 Pizza Slice, 260, 11, 33, 11, 100
 Potato Salad, 140, 3, 11, 8, 100
+Protein Flapjack, 264, 18.75, 34, 8.3, 75
 Rice, 130, 3, 28, 0.5, 100
 Roasted Whole Chicken with Skin, 269, 30.7, 0, 15, 110
 Sainsburys iced ring doughnut, 383, 7, 46, 18.4, 100
@@ -107,6 +113,7 @@ Sarma, 140, 2, 16, 7, 100
 Sea bass fish, 124, 24, 0, 2.6, 100
 Sea Bream, 96, 17.5, 0, 2.9, 100
 Semi Skimmed Milk, 50, 3.3, 4.8, 2, 100
+Simit, 277, 8.2, 50, 4.6, 100
 Small double KitKat Bars, 106, 1.1, 12.9, 5.3, 25
 Sosis, 204, 12, 3, 16, 100
 Strawberry Cheesecake, 260, 3.6, 31.4, 13, 100
@@ -114,13 +121,15 @@ Su borek, 275, 8.6, 30, 13.2, 120
 Sucuk, 400, 18.2, 1.5, 35.4, 100
 Syntha Protein Shake, 150, 24, 6, 3.5, 40
 Tartar Sauce, 42, 0.5, 2.3, 3.6, 15
+Tofurky Vegan Sausage, 167, 18.3, 2.5, 8.2, 63
 Tomato Soup, 30, 1, 7, 1, 100
 Tuna tin, 120, 27, 0, 0.5, 100
 Uncle Bens Golden Veg Rice, 191, 4.1, 36.9, 2.8, 125
 Vanilla Ice Cream, 210, 3.5, 24, 11, 100
 Wrap Bread, 305, 7.9, 50.6, 7.2, 100
+Yogurt corbasi, 65, 1.8, 5.2, 4.1, 100
 Yogurt Soup, 65, 2, 5, 4, 100
 Zeytinyagli Yesil Fasulye, 85, 5.2, 15.2, 0.28, 100
 ---------------------------------
-Backup Generated at : 30/11/2018 16:45:55
+Backup Generated at : 11/09/2019 00:09:21
 ---------------------------------

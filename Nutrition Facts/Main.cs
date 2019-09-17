@@ -772,6 +772,12 @@ namespace Nutrition_Facts
             BMRForm bmr = new BMRForm();
             bmr.ShowDialog();
         }
+
+        private void showMealsButton_Click(object sender, EventArgs e)
+        {
+            MealsForm mealsForm = new MealsForm();
+            mealsForm.ShowDialog();
+        }
     }
 }
 
