@@ -17,6 +17,10 @@ namespace Nutrition_Facts
 
         private CalorieBreakDownResults calorieBreakdownResult;
 
+        private MealsForm mealsForm;
+
+        private string selectedMealName;
+
         public Main()
         {
             InitializeComponent();
@@ -27,6 +31,8 @@ namespace Nutrition_Facts
             this.ToolTips();
 
             this.SetDefaultValues();
+
+            this.mealsForm = new MealsForm();
         }
 
         private void SetDefaultValues()
@@ -64,6 +70,10 @@ namespace Nutrition_Facts
                     if (listBox.Items[i].ToString().ToLower().Contains(input.ToLower()))
                     {
                         listBox.SetSelected(i, true);
+
+                        this.selectedMealName = listBox.Items[i].ToString();
+
+                        this.addMealButton.Enabled = true;
                     }
                 }
             }
@@ -752,7 +762,7 @@ namespace Nutrition_Facts
                     proteinTextbox.Text = "0";
                     carbTextbox.Text = "0";
                     fatTextbox.Text = "0";
-                 
+
                     //calorie breakdown and rdi labels
                     caloriebreakdownLabel.Text = "";
                     calorieLabel.Text = "";
@@ -775,8 +785,17 @@ namespace Nutrition_Facts
 
         private void showMealsButton_Click(object sender, EventArgs e)
         {
-            MealsForm mealsForm = new MealsForm();
-            mealsForm.ShowDialog();
+            this.mealsForm.ShowDialog();
+        }
+
+        private void addMealButton_Click(object sender, EventArgs e)
+        {
+            var addMeal = new AddToMealsForm();
+
+            addMeal.meals = new MealNutrition(this.selectedMealName, quantityTextbox.Text, caloriesTextbox.Text,
+                    proteinTextbox.Text, carbTextbox.Text, fatTextbox.Text);
+
+            addMeal.ShowDialog();
         }
     }
 }

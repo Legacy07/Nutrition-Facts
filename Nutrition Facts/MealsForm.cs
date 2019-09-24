@@ -13,6 +13,10 @@ namespace Nutrition_Facts
 {
     public partial class MealsForm : Form
     {
+        public MealNutrition meals { get; set; }
+
+        public List<MealNutrition> mealsList { get; set; } = new List<MealNutrition>();
+
         public MealsForm()
         {
             InitializeComponent();
@@ -21,6 +25,11 @@ namespace Nutrition_Facts
         private void MealsForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public void setMeals(MealNutrition meals)
+        {
+            this.mealsList.Add(meals);
         }
     }
 }

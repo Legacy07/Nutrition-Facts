@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Nutrition Facts.exe" size="98304">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Nutrition Facts.exe" size="100864">
       <assemblyIdentity name="Nutrition Facts" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zHNOelmGprKymzfQSs6PWFhRPRjrT4w5qLFro6PCTik=</dsig:DigestValue>
+        <dsig:DigestValue>tRfkJWvOEQhR+/ofCm4XzK9wOlwJ4IpSMuWvq7XKJtE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -81,7 +81,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>gtrhhIRhdWpP/TGRTofjw2rTrAsw6AzisRBfN4I0b7s=</dsig:DigestValue>
+      <dsig:DigestValue>zrm9DFGMQEuUrLFvssNHHXuejefWRuy5aS2o1E1N0TU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Database_log.ldf" size="8388608" writeableType="applicationData">
@@ -90,7 +90,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>8VKnOSYfI8pgmawqzMtjoDlTd74TCUG4K9/M/i22FZA=</dsig:DigestValue>
+      <dsig:DigestValue>LBUM8oYAEdnGfOktrMHKCpt7gselP4febwnlQ+eAzNI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Nutrition Facts.exe.config" size="189">

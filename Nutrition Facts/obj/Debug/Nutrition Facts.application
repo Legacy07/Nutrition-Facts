@@ -14,14 +14,14 @@
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Nutrition Facts.exe.manifest" size="6597">
+    <dependentAssembly dependencyType="install" codebase="Nutrition Facts.exe.manifest" size="6598">
       <assemblyIdentity name="Nutrition Facts.exe" version="1.0.0.25" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+gUeIKnZYBXgHsIrHOwijIrSq8fCkPIINQwN37OZn68=</dsig:DigestValue>
+        <dsig:DigestValue>6m0BlmdU4yQcpAVrB+gQhVqC2q7KBkvMyxp3EjGz+kc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

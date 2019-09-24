@@ -39,3 +39,4 @@ D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_F
 D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.csproj.CoreCompileInputs.cache
 D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.csproj.CopyComplete
 D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_Facts.MealsForm.resources
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_Facts.AddToMealsForm.resources

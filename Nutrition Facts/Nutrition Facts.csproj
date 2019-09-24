@@ -105,6 +105,12 @@
     <Compile Include="AddFoodInDb.Designer.cs">
       <DependentUpon>AddFoodInDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddToMealsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddToMealsForm.Designer.cs">
+      <DependentUpon>AddToMealsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BMRForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     <Compile Include="Repository.cs" />
     <EmbeddedResource Include="AddFoodInDb.resx">
       <DependentUpon>AddFoodInDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddToMealsForm.resx">
+      <DependentUpon>AddToMealsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BMRForm.resx">
       <DependentUpon>BMRForm.cs</DependentUpon>
