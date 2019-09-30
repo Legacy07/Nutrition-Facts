@@ -785,13 +785,14 @@ namespace Nutrition_Facts
 
         private void showMealsButton_Click(object sender, EventArgs e)
         {
-            this.mealsForm.ShowDialog();
+            this.mealsForm.Show();
         }
 
         private void addMealButton_Click(object sender, EventArgs e)
         {
             var addMeal = new AddToMealsForm();
 
+            addMeal.mealsForm = this.mealsForm;
             addMeal.meals = new MealNutrition(this.selectedMealName, quantityTextbox.Text, caloriesTextbox.Text,
                     proteinTextbox.Text, carbTextbox.Text, fatTextbox.Text);
 

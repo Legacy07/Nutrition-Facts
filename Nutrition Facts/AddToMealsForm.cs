@@ -13,20 +13,21 @@ namespace Nutrition_Facts
     public partial class AddToMealsForm : Form
     {
         public MealNutrition meals { get; set; }
-
-        private MealsForm mealsForm { get; set; }
+        public MealsForm mealsForm { get; set; }
 
         public AddToMealsForm()
         {
             InitializeComponent();
 
             this.meals = new MealNutrition();
-            this.mealsForm = new MealsForm();
         }
 
         private void addMealButton_Click(object sender, EventArgs e)
         {
-            this.mealsForm.setMeals(this.meals);
+            this.Hide();
+
+            this.mealsForm.setMeals(this.meals, this.mealTypeComboBox.SelectedItem.ToString());
+            this.mealsForm.Show();
         }
     }
 }

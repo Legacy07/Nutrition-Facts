@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.mealTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.addMealButton = new System.Windows.Forms.Button();
             this.mealLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // mealTypeComboBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.mealTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.mealTypeComboBox.FormattingEnabled = true;
+            this.mealTypeComboBox.Items.AddRange(new object[] {
             "Breakfast",
             "Lunch",
             "Dinner",
             "Snack"});
-            this.comboBox1.Location = new System.Drawing.Point(12, 74);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(370, 24);
-            this.comboBox1.TabIndex = 0;
+            this.mealTypeComboBox.Location = new System.Drawing.Point(12, 74);
+            this.mealTypeComboBox.Name = "mealTypeComboBox";
+            this.mealTypeComboBox.Size = new System.Drawing.Size(370, 24);
+            this.mealTypeComboBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -85,8 +85,9 @@
             this.Controls.Add(this.mealLabel);
             this.Controls.Add(this.addMealButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.mealTypeComboBox);
             this.Name = "AddToMealsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddToMealsForm";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -95,7 +96,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox mealTypeComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button addMealButton;
         private System.Windows.Forms.Label mealLabel;
