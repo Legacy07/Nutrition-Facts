@@ -13,7 +13,7 @@ namespace Nutrition_Facts
     public partial class AddToMealsForm : Form
     {
         public MealNutrition meals { get; set; }
-        public MealsForm mealsForm { get; set; }
+        public DashboardForm mealsForm { get; set; }
 
         public AddToMealsForm()
         {

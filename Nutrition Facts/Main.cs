@@ -17,7 +17,7 @@ namespace Nutrition_Facts
 
         private CalorieBreakDownResults calorieBreakdownResult;
 
-        private MealsForm mealsForm;
+        private DashboardForm mealsForm;
 
         private string selectedMealName;
 
@@ -26,101 +26,101 @@ namespace Nutrition_Facts
             InitializeComponent();
             this.Repository = new Repository();
 
-            this.FillListbox();
+            ////this.FillListbox();
 
-            this.ToolTips();
+            ////this.ToolTips();
 
-            this.SetDefaultValues();
+            ////this.SetDefaultValues();
 
-            this.mealsForm = new MealsForm();
+            this.mealsForm = new DashboardForm();
         }
 
-        private void SetDefaultValues()
-        {
-            //setting nutrition summary textbox to 0
-            quantityTextbox.Text = "0";
-            caloriesTextbox.Text = "0";
-            proteinTextbox.Text = "0";
-            carbTextbox.Text = "0";
-            fatTextbox.Text = "0";
-        }
+        ////private void SetDefaultValues()
+        ////{
+        ////    //setting nutrition summary textbox to 0
+        ////    quantityTextbox.Text = "0";
+        ////    caloriesTextbox.Text = "0";
+        ////    proteinTextbox.Text = "0";
+        ////    carbTextbox.Text = "0";
+        ////    fatTextbox.Text = "0";
+        ////}
 
-        private void ToolTips()
-        {
-            ToolTip tooltip = new ToolTip();
-            tooltip.SetToolTip(calorieChart, "Calorie breakdown to illustrate nutritions taken");
-            tooltip.SetToolTip(servingSizeLabel, "* In grams");
-            tooltip.SetToolTip(servingUpdateButton, "Update Serving Size");
-            tooltip.SetToolTip(refreshButton, "Refresh Database Content");
-        }
+        ////private void ToolTips()
+        ////{
+        ////    ToolTip tooltip = new ToolTip();
+        ////    tooltip.SetToolTip(calorieChart, "Calorie breakdown to illustrate nutritions taken");
+        ////    tooltip.SetToolTip(servingSizeLabel, "* In grams");
+        ////    tooltip.SetToolTip(servingUpdateButton, "Update Serving Size");
+        ////    tooltip.SetToolTip(refreshButton, "Refresh Database Content");
+        ////}
 
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-            string input = inputTextbox.Text;
+        ////private void searchButton_Click(object sender, EventArgs e)
+        ////{
+        ////    string input = inputTextbox.Text;
 
-            listBox.SelectedItems.Clear();
-            if (input == string.Empty)
-            {
-                MessageBox.Show("It can't be left blank");
-            }
-            else
-            {
-                for (int i = listBox.Items.Count - 1; i >= 0; i--)
-                {
-                    if (listBox.Items[i].ToString().ToLower().Contains(input.ToLower()))
-                    {
-                        listBox.SetSelected(i, true);
+        ////    listBox.SelectedItems.Clear();
+        ////    if (input == string.Empty)
+        ////    {
+        ////        MessageBox.Show("It can't be left blank");
+        ////    }
+        ////    else
+        ////    {
+        ////        for (int i = listBox.Items.Count - 1; i >= 0; i--)
+        ////        {
+        ////            if (listBox.Items[i].ToString().ToLower().Contains(input.ToLower()))
+        ////            {
+        ////                listBox.SetSelected(i, true);
 
-                        this.selectedMealName = listBox.Items[i].ToString();
+        ////                this.selectedMealName = listBox.Items[i].ToString();
 
-                        this.addMealButton.Enabled = true;
-                    }
-                }
-            }
-        }
+        ////                this.addMealButton.Enabled = true;
+        ////            }
+        ////        }
+        ////    }
+        ////}
 
-        public void FillListbox()
-        {
-            listBox.Items.Clear();
+        ////public void FillListbox()
+        ////{
+        ////    listBox.Items.Clear();
 
-            var foodsData = this.Repository.GetAllFoods();
+        ////    var foodsData = this.Repository.GetAllFoods();
 
-            foreach (DataRow dr in foodsData.Rows)
-            {
-                listBox.Items.Add(dr["Name"].ToString());
-            }
-        }
+        ////    foreach (DataRow dr in foodsData.Rows)
+        ////    {
+        ////        listBox.Items.Add(dr["Name"].ToString());
+        ////    }
+        ////}
 
-        private void listBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listBox.SelectedIndex == -1)
-            {
-            }
-            else
-            {
-                var foodData = Repository.GetFood(listBox.SelectedItem.ToString());
+        ////private void listBox_SelectedIndexChanged(object sender, EventArgs e)
+        ////{
+        ////    if (listBox.SelectedIndex == -1)
+        ////    {
+        ////    }
+        ////    else
+        ////    {
+        ////        var foodData = Repository.GetFood(listBox.SelectedItem.ToString());
 
-                //just get the first index from fooddata instead? coz this should contain only the selected food tha is returned from repository.
-                foreach (DataRow row in foodData.Rows)
-                {
-                    quantityTextbox.Text = row["Quantity"].ToString();
-                    caloriesTextbox.Text = row["Calorie"].ToString();
-                    proteinTextbox.Text = row["Protein"].ToString();
-                    carbTextbox.Text = row["Carb"].ToString();
-                    fatTextbox.Text = row["Fat"].ToString();
-                }
+        ////        //just get the first index from fooddata instead? coz this should contain only the selected food tha is returned from repository.
+        ////        foreach (DataRow row in foodData.Rows)
+        ////        {
+        ////            quantityTextbox.Text = row["Quantity"].ToString();
+        ////            caloriesTextbox.Text = row["Calorie"].ToString();
+        ////            proteinTextbox.Text = row["Protein"].ToString();
+        ////            carbTextbox.Text = row["Carb"].ToString();
+        ////            fatTextbox.Text = row["Fat"].ToString();
+        ////        }
 
-                calorieLabel.Text = "There are " + caloriesTextbox.Text + " Calories in " + quantityTextbox.Text + " grams of " + Environment.NewLine + listBox.SelectedItem;
+        ////        calorieLabel.Text = "There are " + caloriesTextbox.Text + " Calories in " + quantityTextbox.Text + " grams of " + Environment.NewLine + listBox.SelectedItem;
 
-                calorieBreakdownResult = this.CalorieBreakdown(fatTextbox.Text, carbTextbox.Text, proteinTextbox.Text, caloriesTextbox.Text);
+        ////        calorieBreakdownResult = this.CalorieBreakdown(fatTextbox.Text, carbTextbox.Text, proteinTextbox.Text, caloriesTextbox.Text);
 
-                caloriebreakdownLabel.Text = "Calorie breakdown:" + Environment.NewLine + calorieBreakdownResult.TotalProteinPercentage + "% Protein"
-                    + Environment.NewLine + calorieBreakdownResult.TotalCarbPercentage
-                    + "% Carbohydrate" + Environment.NewLine + calorieBreakdownResult.TotalFatPercentage + "% Fat";
+        ////        caloriebreakdownLabel.Text = "Calorie breakdown:" + Environment.NewLine + calorieBreakdownResult.TotalProteinPercentage + "% Protein"
+        ////            + Environment.NewLine + calorieBreakdownResult.TotalCarbPercentage
+        ////            + "% Carbohydrate" + Environment.NewLine + calorieBreakdownResult.TotalFatPercentage + "% Fat";
 
-                this.GenerateCalorieGraph();
-            }
-        }
+        ////        this.GenerateCalorieGraph();
+        ////    }
+        ////}
 
         private void inputTextbox_TextChanged(object sender, EventArgs e)
         {
@@ -128,37 +128,37 @@ namespace Nutrition_Facts
             //filter.RowFilter = ""
         }
 
-        private void refreshButton_Click(object sender, EventArgs e)
-        {
-            listBox.Items.Clear();
+        ////private void refreshButton_Click(object sender, EventArgs e)
+        ////{
+        ////    listBox.Items.Clear();
 
-            SqlConnection connection = DatabaseClass.GetConnection();
+        ////    SqlConnection connection = DatabaseClass.GetConnection();
 
-            try
-            {
-                connection.Open();
+        ////    try
+        ////    {
+        ////        connection.Open();
 
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Exception in DBHandler", ex);
-            }
+        ////    }
+        ////    catch (Exception ex)
+        ////    {
+        ////        Console.WriteLine("Exception in DBHandler", ex);
+        ////    }
 
-            string query = "Select Name from Facts";
-            SqlCommand command = new SqlCommand(query, connection);
-            command.ExecuteNonQuery();
-            DataTable dataTable = new DataTable();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-            dataAdapter.Fill(dataTable);
+        ////    string query = "Select Name from Facts";
+        ////    SqlCommand command = new SqlCommand(query, connection);
+        ////    command.ExecuteNonQuery();
+        ////    DataTable dataTable = new DataTable();
+        ////    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+        ////    dataAdapter.Fill(dataTable);
 
-            foreach (DataRow row in dataTable.Rows)
-            {
-                listBox.Items.Add(row["Name"].ToString());
-            }
+        ////    foreach (DataRow row in dataTable.Rows)
+        ////    {
+        ////        listBox.Items.Add(row["Name"].ToString());
+        ////    }
 
-            connection.Close();
-            MessageBox.Show("Data Refreshed!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+        ////    connection.Close();
+        ////    MessageBox.Show("Data Refreshed!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        ////}
 
         private void backupDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -293,34 +293,48 @@ namespace Nutrition_Facts
             }
         }
 
+        private Form activeForm = null;
+        private void openChildFormInPanel(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+                activeForm = childForm;
+                childForm.TopLevel = false;
+                childForm.FormBorderStyle = FormBorderStyle.None;
+                childForm.Dock = DockStyle.Fill;
+                childPanel.Controls.Add(childForm);
+                childPanel.Tag = childForm;
+                childPanel.BringToFront();
+                childPanel.Show();
+        }
         private void Main_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'databaseDataSet.Facts' table. You can move, or remove it, as needed.
             this.factsTableAdapter.Fill(this.databaseDataSet.Facts);
         }
 
-        public void GenerateCalorieGraph()
-        {
-            calorieChart.Series[0].Points.Clear();
+        ////public void GenerateCalorieGraph()
+        ////{
+        ////    calorieChart.Series[0].Points.Clear();
 
-            if (caloriebreakdownLabel.Text == "")
-            {
-                MessageBox.Show("Please select a food type to generate the chart!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                try
-                {
-                    calorieChart.Series["Series"].Points.AddXY("Fat", calorieBreakdownResult.TotalFatPercentage);
-                    calorieChart.Series["Series"].Points.AddXY("Protein", calorieBreakdownResult.TotalProteinPercentage);
-                    calorieChart.Series["Series"].Points.AddXY("Carbohydrate", calorieBreakdownResult.TotalCarbPercentage);
-                }
-                catch (Exception exc)
-                {
-                    MessageBox.Show("An error occured! " + exc, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
+        ////    if (caloriebreakdownLabel.Text == "")
+        ////    {
+        ////        MessageBox.Show("Please select a food type to generate the chart!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        ////    }
+        ////    else
+        ////    {
+        ////        try
+        ////        {
+        ////            calorieChart.Series["Series"].Points.AddXY("Fat", calorieBreakdownResult.TotalFatPercentage);
+        ////            calorieChart.Series["Series"].Points.AddXY("Protein", calorieBreakdownResult.TotalProteinPercentage);
+        ////            calorieChart.Series["Series"].Points.AddXY("Carbohydrate", calorieBreakdownResult.TotalCarbPercentage);
+        ////        }
+        ////        catch (Exception exc)
+        ////        {
+        ////            MessageBox.Show("An error occured! " + exc, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        ////        }
+        ////    }
+        ////}
 
         ////public void GenerateRDIChart(int rdi, int calories)
         ////{
@@ -730,13 +744,13 @@ namespace Nutrition_Facts
             return total;
         }
         //press enter to search on inputtextbox
-        private void inputTextbox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                searchButton_Click(this, new EventArgs());
-            }
-        }
+        ////private void inputTextbox_KeyDown(object sender, KeyEventArgs e)
+        ////{
+        ////    if (e.KeyCode == Keys.Enter)
+        ////    {
+        ////        searchButton_Click(this, new EventArgs());
+        ////    }
+        ////}
 
         private void quantityTextbox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -746,36 +760,36 @@ namespace Nutrition_Facts
         }
 
         //disposal
-        private void resetButton_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to reset EVERYTHING?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                try
-                {
-                    inputTextbox.Text = "";
-                    listBox.SelectedItem = null;
+        ////private void resetButton_Click(object sender, EventArgs e)
+        ////{
+        ////    DialogResult result = MessageBox.Show("Are you sure you want to reset EVERYTHING?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+        ////    if (result == DialogResult.Yes)
+        ////    {
+        ////        try
+        ////        {
+        ////            inputTextbox.Text = "";
+        ////            listBox.SelectedItem = null;
 
-                    //setting nutrition summary textbox to 0
-                    quantityTextbox.Text = "0";
-                    caloriesTextbox.Text = "0";
-                    proteinTextbox.Text = "0";
-                    carbTextbox.Text = "0";
-                    fatTextbox.Text = "0";
+        ////            //setting nutrition summary textbox to 0
+        ////            quantityTextbox.Text = "0";
+        ////            caloriesTextbox.Text = "0";
+        ////            proteinTextbox.Text = "0";
+        ////            carbTextbox.Text = "0";
+        ////            fatTextbox.Text = "0";
 
-                    //calorie breakdown and rdi labels
-                    caloriebreakdownLabel.Text = "";
-                    calorieLabel.Text = "";
-                    //charts reset
-                    calorieChart.Series[0].Points.Clear();
-                }
-                catch (Exception)
-                {
+        ////            //calorie breakdown and rdi labels
+        ////            caloriebreakdownLabel.Text = "";
+        ////            calorieLabel.Text = "";
+        ////            //charts reset
+        ////            calorieChart.Series[0].Points.Clear();
+        ////        }
+        ////        catch (Exception)
+        ////        {
 
-                    MessageBox.Show("Error Occurred: ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
+        ////            MessageBox.Show("Error Occurred: ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        ////        }
+        ////    }
+        ////}
 
         private void bMRCalculatorToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -788,15 +802,35 @@ namespace Nutrition_Facts
             this.mealsForm.Show();
         }
 
-        private void addMealButton_Click(object sender, EventArgs e)
+        ////private void addMealButton_Click(object sender, EventArgs e)
+        ////{
+        ////    var addMeal = new AddToMealsForm();
+
+        ////    addMeal.mealsForm = this.mealsForm;
+        ////    addMeal.meals = new MealNutrition(this.selectedMealName, quantityTextbox.Text, caloriesTextbox.Text,
+        ////            proteinTextbox.Text, carbTextbox.Text, fatTextbox.Text);
+
+        ////    addMeal.ShowDialog();
+        ////}
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
-            var addMeal = new AddToMealsForm();
 
-            addMeal.mealsForm = this.mealsForm;
-            addMeal.meals = new MealNutrition(this.selectedMealName, quantityTextbox.Text, caloriesTextbox.Text,
-                    proteinTextbox.Text, carbTextbox.Text, fatTextbox.Text);
+        }
 
-            addMeal.ShowDialog();
+        private void calorieChart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dashboardButton_Click(object sender, EventArgs e)
+        {
+            this.openChildFormInPanel(new DashboardForm());
+        }
+
+        private void searchB_Click(object sender, EventArgs e)
+        {
+            this.openChildFormInPanel(new SearchForm());
         }
     }
 }

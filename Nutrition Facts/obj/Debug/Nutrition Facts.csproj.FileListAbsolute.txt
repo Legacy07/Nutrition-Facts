@@ -36,7 +36,7 @@ G:\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.app
 D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_Facts.BMRForm.resources
 D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.csprojAssemblyReference.cache
 D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_Facts.AddFoodInDb.resources
-D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.csproj.CoreCompileInputs.cache
 D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition Facts.csproj.CopyComplete
-D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_Facts.MealsForm.resources
 D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_Facts.AddToMealsForm.resources
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_Facts.DashboardForm.resources
+D:\Desktop\Nutrition Facts\Nutrition Facts\Nutrition Facts\obj\Debug\Nutrition_Facts.SearchForm.resources
